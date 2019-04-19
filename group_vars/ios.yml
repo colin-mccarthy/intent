@@ -1,7 +1,7 @@
 ---
 
 
-    service_configa:s
+    service_configa:
       - service nagle
       - no service pad
       - service timestamps debug datetime localtime
