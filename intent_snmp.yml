@@ -30,7 +30,7 @@
   - name: display added commands
     when: item.changed
     debug:
-      var: "{{ item.commands }}"
+      var: "{{ commands }}"
     with_items: "{{ set_snmp.results }}"
 
 #  - name: display removed commands
