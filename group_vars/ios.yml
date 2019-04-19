@@ -60,12 +60,12 @@
       - transport input ssh
       - transport output ssh
 
-   line_vty_5_15:
-     - exec-timeout 30 0
-     - privilege level 15
-     - transport preferred ssh
-     - transport input ssh
-     - transport output ssh
+    line_vty_5_15:
+      - exec-timeout 30 0
+      - privilege level 15
+      - transport preferred ssh
+      - transport input ssh
+      - transport output ssh
 
 
 ansible_network_os=ios
