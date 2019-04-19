@@ -30,7 +30,7 @@
   - name: display added commands
     when: set_snmp.changed
     debug:
-      msg: "{{ set_snmp }}"
+      msg: "{{ set_snmp.commands }}"
 
   - name: display removed commands
     when: remove_snmp.changed
