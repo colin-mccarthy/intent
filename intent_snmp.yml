@@ -31,9 +31,8 @@
     when: "item.changed and item.commands is defined"
     debug:
       var: item.commands
-    loop: "{{ set_snmp.results }}"
     loop_control:
-      label: "{{item.results}}"
+      label: "{{ set_snmp }}"
 
 #  - name: display removed commands
 #    when: remove_snmp.changed
