@@ -1,0 +1,43 @@
+---
+
+    aaa_configs:
+      - aaa new-model
+      - aaa authentication login default group tacacs+ local
+      - aaa authentication enable default group tacacs+ enable
+      - aaa authorization config-commands
+      - 'aaa authorization exec default group tacacs+ local '
+      - 'aaa authorization commands 1 default group tacacs+ none ' 
+      - 'aaa authorization commands 15 default group tacacs+ none '
+      - aaa accounting exec default start-stop group tacacs+
+      - aaa accounting network default start-stop group tacacs+
+      - aaa accounting connection default start-stop group tacacs+
+      - aaa accounting system default start-stop group tacacs+
+      - aaa session-id common
+
+
+
+    dns_servers:
+      - ip name-server 8.8.8.8
+      - ip name-server 8.8.4.4
+
+
+    log_servers:
+      - logging 8.8.8.8
+      - logging 8.8.4.4
+
+
+    ntp_servers:
+      - ntp server 216.239.35.0
+      - ntp server 216.239.35.4
+
+
+    snmp_server:
+      - snmp-server community ansibull RO 99
+      - snmp-server trap-source Loopback0
+      - snmp-server contact noc@yourcompany.com
+      - snmp-server enable traps ospf state-change
+      - snmp-server enable traps ospf errors
+      - snmp-server enable traps ospf retransmit
+      - snmp-server enable traps ospf lsa
+      - snmp-server host 192.168.161.110 version 2c public udp-port 161
+
