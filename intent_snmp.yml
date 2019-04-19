@@ -28,10 +28,10 @@
         - "no {{ item }}"
 
   - name: display added commands
-   when: item.changed
-   debug:
-     msg: "{{ item.commands }}"
-   with_items: "{{ set_snmp.results }}"
+    when: item.changed
+    debug:
+      msg: "{{ item.commands }}"
+    with_items: "{{ set_snmp.results }}"
 
 #  - name: display removed commands
 #    when: remove_snmp.changed
