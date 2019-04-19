@@ -28,9 +28,9 @@
         - "no {{ item }}"
 
   - name: display added commands
-    when: "set_snmp.changed and set_snmp.commands is defined"
+    when: "set_snmp.changed"
     debug:
-      var: set_snmp.commands
+      var: set_snmp.item.commnds
     loop_control:
       label: "{{ set_snmp }}"
 
