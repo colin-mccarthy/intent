@@ -1,0 +1,33 @@
+---
+- hosts: ios
+
+
+  tasks:
+  
+  - name: get the current service configs
+    ios_command:
+      commands:
+        - "show running-config full | include service"
+    register: get_config
+
+  - debug: var=get_config.stdout_lines
+
+  - name: set service configs
+    with_items: "{{ service_configs }}"
+    ios_config:
+      lines:
+        - "{{ item }}"
+    register: set_service
+
+  - name: remove service configs
+    when: "(get_config.stdout_lines[0] != '') and (item not in service_configs)"
+    with_items: "{{ get_config.stdout_lines[0] }}"
+    register: remove_service
+    ios_config:
+      lines:
+        - "no {{ item }}"
+
+  - name: servicenow_network_tickets
+    when: set_service.changed or remove_service.changed 
+    import_role:
+      name: servicenow_network_tickets

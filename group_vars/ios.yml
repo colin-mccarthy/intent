@@ -1,5 +1,15 @@
 ---
 
+
+    service_configs
+      - service nagle
+      - no service pad
+      - service timestamps debug datetime localtime
+      - service timestamps log datetime localtime
+
+
+
+
     aaa_configs:
       - aaa new-model
       - aaa authentication login default group tacacs+ local
