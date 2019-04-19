@@ -29,6 +29,7 @@
 
   - name: display added commands
     when: "set_snmp.changed"
+    with_items: "{{ set_snmp.results }}"
     debug:
       var: set_snmp.item.commands
     loop_control:
