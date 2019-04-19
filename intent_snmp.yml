@@ -30,12 +30,12 @@
   - name: display added commands
     when: set_snmp.changed
     debug:
-      msg: "{{ set_snmp.commands }}"
+      msg: "{{ set_snmp }}"
 
   - name: display removed commands
     when: remove_snmp.changed
     debug:
-      msg: "{{ remove_snmp.commands }}"
+      msg: "{{ remove_snmp }}"
 
   - name: servicenow_network_tickets
     when: set_snmp.changed or remove_snmp.changed 
