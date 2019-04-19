@@ -27,13 +27,17 @@
       lines:
         - "no {{ item }}"
 
-  - name: display added commands
-    when: "set_snmp.changed"
-    with_items: "{{ set_snmp.results }}"
+  - name: debug set_snmp
     debug:
-      var: set_snmp.item.commands
-    loop_control:
-      label: "{{ set_snmp }}"
+      var: set_snmp
+
+#  - name: display added commands
+#    when: "set_snmp.changed"
+#    with_items: "{{ set_snmp.results }}"
+#    debug:
+#      var: set_snmp.item.commands
+#    loop_control:
+#      label: "{{ set_snmp }}"
 
 #  - name: display removed commands
 #    when: remove_snmp.changed
