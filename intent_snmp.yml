@@ -32,6 +32,8 @@
     debug:
       var: item.commands
     loop: "{{ set_snmp.results }}"
+    loop_control:
+      label: "{{item.commands}}"
 
 #  - name: display removed commands
 #    when: remove_snmp.changed
