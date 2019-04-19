@@ -27,9 +27,13 @@
       lines:
         - "no {{ item }}"
 
-  - name: display commands
+  - name: display added commands
     debug:
       msg: "{{ set_snmp.commands }}"
+
+  - name: display removed commands
+    debug:
+      msg: "{{ remove_snmp.commands }}"
 
   - name: servicenow_network_tickets
     when: set_snmp.changed or remove_snmp.changed 
